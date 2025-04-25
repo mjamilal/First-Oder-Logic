@@ -1,0 +1,26 @@
+% Fakta anak-anak Ayah
+anak_ayah(lina).
+anak_ayah(miko).
+anak_ayah(nita).
+anak_ayah(oki).
+anak_ayah(pina).
+
+%Fakta bukan anak ayah
+bukan_anak_ayah(riko).
+
+%Fakta suka buku
+suka_buku(lina).
+suka_buku(nita).
+
+%Aturan pemberian hadiah
+dapat_hadiah(x, buku) :-
+    anak_ayah(x),
+    suka_buku(x).
+
+dapat_hadiah(x, mainan) :-
+    anak_ayah(x),
+    \+ suka_buku(x).
+
+%orang yang tidak dapat apa-apa (misal:riko)
+tidak_dapat_apa_apa(x) :-
+    bukan_anak_ayah(x).
